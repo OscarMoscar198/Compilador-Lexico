@@ -22,14 +22,11 @@ CONTENIDO
   / VARIABLEFLOAT
   / VARIABLESTRING
   / VARIABLEBOOL
-  / CONT
   / PRINT
 
 PRINT
   = "Print" _ "(" _ argument:Argumento _ ")" { return { type: "Print", argument: argument }; }
 
-CONT
-  = "CONTENIDO"
 
 VARIABLEINT
   = "int" _ IDENTIFICADOR _ "=" _ DIGITO _ CONTENIDO?
@@ -50,10 +47,9 @@ FOR
   = "for" _ "(" _ CONTADOR _ ")" _ "{" _ CONTENIDO _ "}"
 
 FUNCION
-  = "func" _ IDENTIFICADOR _ "(" _ Parametros? _ ")" _ "{" _ "return" _ CONTENIDO _ "}"
+  = "func" _ IDENTIFICADOR _ "(" _ ")" _ "{" _ "return" _ CONTENIDO _ "}"
 
-Parametros
-  = IDENTIFICADOR ( _ "," _ IDENTIFICADOR _ )*
+
 
 STRING
   = [a-zA-Z_][a-zA-Z0-9_]*

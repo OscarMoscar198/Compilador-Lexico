@@ -3,7 +3,7 @@ import Monaco from "@monaco-editor/react";
 import "./styles.css";
 import Lexer from "../components/Lexer";
 import { parse } from "../../gramatica.js";
-import { interpret } from "../components/interprete";
+import { interpret } from "../components/interprete.js";
 import { analyzeSemantics } from '../components/semantica.js';
 
 function Home() {
@@ -30,6 +30,7 @@ function Home() {
     }
     return logs;
 }
+
 
   const analizarCodigo = () => {
     const lexer = new Lexer(codigo);
@@ -67,6 +68,8 @@ function Home() {
 
     setResul(tokens.map((token) => `${token.type}: ${token.value}`));
     setErrorMessage(error);
+    
+    console.log(interpretationResult);
   };
 
   function setEditorTheme(monaco) {
@@ -85,6 +88,8 @@ function Home() {
     <>
       <div className="title">
         <h1>AUTOMATUM 2.0</h1>
+        <h2>OSCAR JAVIER CASTAÑEDA SOLIS - 213447</h2>
+        <h2>AXEL GIOVANNI REYES RAMOS - 213370</h2>
       </div>
       <div className="area">
         <Monaco
@@ -110,7 +115,8 @@ function Home() {
           )}
         </div>
       </div>
-      <div className="result-list">
+      <div className="result-list">  
+       <h2>TOKENS:</h2>
         <table>
           <thead>
             <tr>

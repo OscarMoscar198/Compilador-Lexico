@@ -49,14 +49,12 @@ function executeStatement(statement, context) {
 function executeDeclaration(declaration, context) {
     if (!context.variables.has(declaration.identifier)) {
         context.variables.set(declaration.identifier, declaration.value);
-        console.log(`Variable declarada: ${declaration.identifier} = ${declaration.value}`);
     } else {
-        console.error(`Error: Variable duplicada ${declaration.identifier}`);
     }
 }
 
 function executePrint(printStmt, context) {
-    console.log("Impresión:", printStmt.argument);
+    console.log(printStmt.argument);
 }
 
 function executeIf(ifStmt, context) {
